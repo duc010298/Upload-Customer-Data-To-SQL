@@ -14,6 +14,7 @@ public class MyUtil {
     public static Date convertStrToDate(String str) {
         SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat format2 = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat format3 = new SimpleDateFormat("yyyy");
         format1.setLenient(false);
         format2.setLenient(false);
         Date ret;
@@ -22,6 +23,10 @@ public class MyUtil {
                 ret = format1.parse(str);
             } else {
                 ret = format2.parse(str);
+            }
+            int year = Integer.parseInt(format3.format(ret));
+            if(year < 1000 || year > 3000) {
+                return null;
             }
             return ret;
         } catch (ParseException ex) {

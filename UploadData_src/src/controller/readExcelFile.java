@@ -121,7 +121,7 @@ public class readExcelFile {
         }
         boolean status =  addManyCustomer.addMany(listCus, objConn);
         disResult.setVisible(true);
-        index.setLocation(20, 100);;
+        index.setLocation(20, 100);
         return status;
     }
 
