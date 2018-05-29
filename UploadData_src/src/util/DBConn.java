@@ -9,16 +9,6 @@ import java.util.logging.Logger;
 public class DBConn {
 
     public static Connection getConnection(String[] objConn) {
-//        String className = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-//        String IP = "localhost";
-//        String instanceName = "MSSQLSERVER";
-//        String port = "1433";
-//        String database = "phongkham";
-//        String userID = "sa";
-//        String password = "12345";
-//
-//        String url = "jdbc:sqlserver://" + IP + "\\" + instanceName + ":" + port
-//                + ";databaseName=" + database + ";user=" + userID + ";password=" + m;
 
         String IP = objConn[0];
         String port = objConn[1];
