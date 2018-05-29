@@ -35,6 +35,10 @@ public class displayResult extends javax.swing.JFrame {
         Object[] obj = {strId, DayVisit, Name, YOB, AddressCus, ExpectedDOB, Result, Note};
         table.addRow(obj);
     }
+    
+    public void scrollTable() {
+        tableCustomer.scrollRectToVisible(tableCustomer.getCellRect(tableCustomer.getRowCount() - 1, 0, false));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

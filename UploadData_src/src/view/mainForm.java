@@ -44,6 +44,27 @@ public class mainForm extends javax.swing.JFrame {
         return objConn;
     }
 
+    public void initProgressBar(int max) {
+        progressBar.setMinimum(1);
+        progressBar.setMaximum(max);
+    }
+
+    public void setProgressBar(int value) {
+        progressBar.setValue(value);
+    }
+
+    public void setStatus(String str) {
+        txtStatus.setText("Status: " + str);
+    }
+
+    public void setTotal(int total) {
+        txtTotal.setText("Total: " + total);
+    }
+    
+    public void setSuccess(int success) {
+        txtSuccess.setText("Success: " + success);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +95,10 @@ public class mainForm extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnTestConnect = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
+        progressBar = new javax.swing.JProgressBar();
+        txtStatus = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JLabel();
+        txtSuccess = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Upload data");
@@ -150,31 +175,24 @@ public class mainForm extends javax.swing.JFrame {
             }
         });
 
+        progressBar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        progressBar.setStringPainted(true);
+
+        txtStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtStatus.setText("Status: unknown");
+
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtTotal.setText("Total: unknown");
+
+        txtSuccess.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSuccess.setText("Success: unknown");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
             .addComponent(jSeparator2)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtFileChooser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnFileChooser))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnUpload)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCancel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(0, 21, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -205,6 +223,29 @@ public class mainForm extends javax.swing.JFrame {
                                     .addComponent(txtPassword))))))
                 .addGap(59, 59, 59))
             .addComponent(jSeparator3)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtFileChooser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnFileChooser))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnUpload)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSuccess, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 21, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +300,15 @@ public class mainForm extends javax.swing.JFrame {
                 .addComponent(btnTestConnect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSuccess)
+                .addGap(20, 20, 20)
+                .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -379,11 +428,15 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JProgressBar progressBar;
     private javax.swing.JTextField txtDatabase;
     private javax.swing.JTextField txtFileChooser;
     private javax.swing.JTextField txtIP;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPort;
+    private javax.swing.JLabel txtStatus;
+    private javax.swing.JLabel txtSuccess;
+    private javax.swing.JLabel txtTotal;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

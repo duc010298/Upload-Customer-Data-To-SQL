@@ -21,6 +21,7 @@ import jxl.read.biff.BiffException;
 import model.Customer;
 import util.MyUtil;
 import view.displayResult;
+import view.mainForm;
 
 /**
  *
@@ -34,13 +35,14 @@ public class mainRun {
     File f;
     String[] objConn;
     Customer cus = new Customer();
-    javax.swing.JFrame mainForm;
+    mainForm mainForm;
     displayResult disResult = new displayResult();
-    
+    int count = 0;
+
     public mainRun(File f, String[] objConn, javax.swing.JFrame mainForm) {
         this.f = f;
         this.objConn = objConn;
-        this.mainForm = mainForm;
+        this.mainForm = (mainForm) mainForm;
         disResult.setVisible(true);
         mainForm.setLocation(20, 100);
         initUploadToSQL();
@@ -51,6 +53,7 @@ public class mainRun {
         displayResult = new Thread() {
             @Override
             public void run() {
+                mainForm.setStatus("Processing");
                 try {
                     FileInputStream inputStream = new FileInputStream(f);
                     Date tempDate1 = new Date();
@@ -60,6 +63,8 @@ public class mainRun {
                     Workbook workbook = Workbook.getWorkbook(inputStream, ws);
                     Sheet sheet = workbook.getSheet(0);
                     int rows = sheet.getRows();
+                    mainForm.initProgressBar(rows);
+                    mainForm.setTotal(rows);
                     for (int row = 0; row < rows; row++) {
                         for (int col = 0; col < 7; col++) {
                             Cell cell = sheet.getCell(col, row);
@@ -148,10 +153,13 @@ public class mainRun {
                         synchronized (this) {
                             wait();
                         }
+                        disResult.scrollTable();
+                        mainForm.setProgressBar(count);
                     }
                 } catch (IOException | IndexOutOfBoundsException | InterruptedException | BiffException ex) {
                     Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                mainForm.setStatus("Finished");
             }
         };
     }
@@ -163,7 +171,9 @@ public class mainRun {
                 customerDao cusDao = new customerDao(objConn);
                 while (true) {
                     try {
-                        cusDao.addCustomer(cus);
+                        if (cusDao.addCustomer(cus)) {
+                            mainForm.setSuccess(++count);
+                        }
                         synchronized (displayResult) {
                             displayResult.notify();
                         }
