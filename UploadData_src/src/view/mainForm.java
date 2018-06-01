@@ -60,7 +60,7 @@ public class mainForm extends javax.swing.JFrame {
     public void setTotal(int total) {
         txtTotal.setText("Total: " + total);
     }
-    
+
     public void setSuccess(int success) {
         txtSuccess.setText("Success: " + success);
     }
@@ -372,6 +372,13 @@ public class mainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTestConnectActionPerformed
 
     private void btnUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadActionPerformed
+        if (!f.exists()) {
+            JOptionPane.showMessageDialog(this,
+                    "Can not find file",
+                    "Message",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         String[] objConn = getConnectConfig();
         mainRun mainR = new mainRun(f, objConn, this);
         mainR.run();
