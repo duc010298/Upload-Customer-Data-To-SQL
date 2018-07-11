@@ -41,7 +41,7 @@ public class Customer {
     }
 
     public void setName(String Name) {
-        this.Name = Name;
+        this.Name = Name.trim();
     }
 
     public void setYOB(int YOB) {
@@ -49,7 +49,7 @@ public class Customer {
     }
 
     public void setAddressCus(String AddressCus) {
-        this.AddressCus = AddressCus;
+        this.AddressCus = AddressCus.trim();
     }
 
     public void setDayVisit(Date DayVisit) {
@@ -61,11 +61,11 @@ public class Customer {
     }
 
     public void setResult(String Result) {
-        this.Result = Result;
+        this.Result = Result.trim();
     }
 
     public void setNote(String Note) {
-        this.Note = Note;
+        this.Note = Note.trim();
     }
 
 }
