@@ -33,15 +33,13 @@ public class mainRun {
     Thread displayResult;
 
     File f;
-    String[] objConn;
     Customer cus = new Customer();
     mainForm mainForm;
     displayResult disResult = new displayResult();
     int count = 0;
 
-    public mainRun(File f, String[] objConn, javax.swing.JFrame mainForm) {
+    public mainRun(File f, javax.swing.JFrame mainForm) {
         this.f = f;
-        this.objConn = objConn;
         this.mainForm = (mainForm) mainForm;
         disResult.setVisible(true);
         mainForm.setLocation(20, 100);
@@ -168,8 +166,9 @@ public class mainRun {
         uploadToSQL = new Thread() {
             @Override
             public void run() {
-                customerDao cusDao = new customerDao(objConn);
+                
                 while (true) {
+                    customerDao cusDao = new customerDao();
                     try {
                         if (cusDao.addCustomer(cus)) {
                             mainForm.setSuccess(++count);
