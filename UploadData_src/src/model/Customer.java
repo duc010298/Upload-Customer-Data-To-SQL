@@ -61,11 +61,11 @@ public class Customer {
     }
 
     public void setResult(String Result) {
-        this.Result = Result.trim();
+        this.Result = Result;
     }
 
     public void setNote(String Note) {
-        this.Note = Note.trim();
+        this.Note = Note;
     }
 
 }
