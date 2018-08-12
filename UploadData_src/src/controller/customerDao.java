@@ -28,7 +28,7 @@ public class customerDao {
         String Result = cus.getResult();
         String Note = cus.getNote();
 
-        String qry = "INSERT INTO Customer VALUES(null, ?, ?, ?, ?, ?, ?, ?)";
+        String qry = "INSERT INTO Customer VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement preSta = conn.prepareStatement(qry);
@@ -52,6 +52,7 @@ public class customerDao {
             } else {
                 preSta.setNString(7, Note);
             }
+            preSta.setNull(8, java.sql.Types.NVARCHAR);
             preSta.executeUpdate();
 
             return true;
