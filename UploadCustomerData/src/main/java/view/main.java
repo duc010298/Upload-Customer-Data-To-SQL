@@ -13,13 +13,13 @@ import util.DBConn;
 
 /**
  *
- * @author Đỗ Trung Đức
+ * @author �?ỗ Trung �?ức
  */
-public class mainForm extends javax.swing.JFrame {
+public class main extends javax.swing.JFrame {
 
     File f;
 
-    public mainForm() {
+    public main() {
         initComponents();
         f = new File(txtFileChooser.getText());
     }
@@ -160,7 +160,7 @@ public class mainForm extends javax.swing.JFrame {
         txtPort.setText("3306");
 
         txtDatabase.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtDatabase.setText("phongkham");
+        txtDatabase.setText("Clinic");
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtUsername.setText("duc010298");
@@ -401,20 +401,21 @@ public class mainForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mainForm().setVisible(true);
+                new main().setVisible(true);
             }
         });
     }
