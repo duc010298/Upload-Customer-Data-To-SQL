@@ -160,7 +160,7 @@ public class mainForm extends javax.swing.JFrame {
         txtPort.setText("3306");
 
         txtDatabase.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtDatabase.setText("phongkham");
+        txtDatabase.setText("Clinic");
 
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtUsername.setText("duc010298");
