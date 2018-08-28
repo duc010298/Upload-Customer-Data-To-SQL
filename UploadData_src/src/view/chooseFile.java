@@ -9,16 +9,16 @@ import java.io.File;
 
 /**
  *
- * @author �?ỗ Trung �?ức
+ * @author Đỗ Trung Đức
  */
 public class chooseFile extends javax.swing.JDialog {
 
-    main parentForm;
+    mainForm parentForm;
 
     public chooseFile(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        parentForm = (main) parent;
+        parentForm = (mainForm) parent;
     }
 
     /**

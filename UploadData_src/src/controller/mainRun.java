@@ -21,11 +21,11 @@ import jxl.read.biff.BiffException;
 import model.Customer;
 import util.MyUtil;
 import view.displayResult;
-import view.main;
+import view.mainForm;
 
 /**
  *
- * @author �?ỗ Trung �?ức
+ * @author Đỗ Trung Đức
  */
 public class mainRun {
 
@@ -35,14 +35,14 @@ public class mainRun {
     File f;
     String[] objConn;
     Customer cus = new Customer();
-    main mainForm;
+    mainForm mainForm;
     displayResult disResult = new displayResult();
     int count = 0;
 
     public mainRun(File f, String[] objConn, javax.swing.JFrame mainForm) {
         this.f = f;
         this.objConn = objConn;
-        this.mainForm = (main) mainForm;
+        this.mainForm = (mainForm) mainForm;
         disResult.setVisible(true);
         mainForm.setLocation(20, 100);
         initUploadToSQL();
@@ -156,13 +156,7 @@ public class mainRun {
                         disResult.scrollTable();
                         mainForm.setProgressBar(count);
                     }
-                } catch (IOException ex) {
-                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IndexOutOfBoundsException ex) {
-                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (BiffException ex) {
+                } catch (IOException | IndexOutOfBoundsException | InterruptedException | BiffException ex) {
                     Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mainForm.setStatus("Finished");
