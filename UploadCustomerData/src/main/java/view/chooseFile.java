@@ -37,7 +37,7 @@ public class chooseFile extends javax.swing.JDialog {
         setLocationByPlatform(true);
         setResizable(false);
 
-        areaFileChooser.setCurrentDirectory(new java.io.File("E:\\"));
+        areaFileChooser.setCurrentDirectory(new File("E:\\"));
             areaFileChooser.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     areaFileChooserActionPerformed(evt);

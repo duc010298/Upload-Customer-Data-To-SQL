@@ -67,7 +67,7 @@ public class displayResult extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 204));
         jLabel2.setText("Customer List");
 
-        tableCustomer.setModel(new javax.swing.table.DefaultTableModel(
+        tableCustomer.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -76,7 +76,7 @@ public class displayResult extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false

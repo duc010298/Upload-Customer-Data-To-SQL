@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class MyUtil {
 
-    public static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+    public static java.sql.Date convertUtilToSql(Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }

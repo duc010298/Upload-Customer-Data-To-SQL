@@ -22,7 +22,10 @@ public class DBConn {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, userID, password);
             return conn;
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBConn.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        } catch (SQLException ex) {
             Logger.getLogger(DBConn.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }

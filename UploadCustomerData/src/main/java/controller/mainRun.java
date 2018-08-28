@@ -156,7 +156,13 @@ public class mainRun {
                         disResult.scrollTable();
                         mainForm.setProgressBar(count);
                     }
-                } catch (IOException | IndexOutOfBoundsException | InterruptedException | BiffException ex) {
+                } catch (IOException ex) {
+                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IndexOutOfBoundsException ex) {
+                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (BiffException ex) {
                     Logger.getLogger(mainRun.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 mainForm.setStatus("Finished");
