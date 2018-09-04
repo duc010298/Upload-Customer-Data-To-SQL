@@ -16,7 +16,7 @@ public class DBConn {
         String userID = objConn[3];
         String password = objConn[4];
 
-        String url = "jdbc:mysql://" + IP + ":" + port + "/" + database + "?autoReconnect=true";
+        String url = "jdbc:mysql://" + IP + ":" + port + "/" + database + "?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
